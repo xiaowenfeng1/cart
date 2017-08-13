@@ -1,0 +1,65 @@
+<form name="checkoutForm" novalidate ng-submit="save()">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label for="nameInp">Name</label>
+            <input type="text" class="form-control" id="nameInp"
+                   name="nameInp" ng-model="address.name" required/>
+            <p class="validation-error"
+               ng-if="checkoutForm.nameInp.$dirty && checkoutForm.nameInp.$error.required">
+                Name is required.
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="address1">Address Line 1</label>
+        <input type="text" class="form-control" id="address1"
+               name="address1" ng-model="address.address1" required/>
+        <p class="validation-error"
+           ng-if="checkoutForm.address1.$dirty && checkoutForm.address1.$error.required">
+            Address Line 1 is required.
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="address2">Address Line 2</label>
+        <input type="text" placeholder="Apt, Suite, Bldg. (optional)"
+               class="form-control" id="address2"
+               name="address2" ng-model="address.address2"/>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city"
+                   name="city" ng-model="address.city" required/>
+            <p class="validation-error"
+               ng-if="checkoutForm.city.$dirty && checkoutForm.city.$error.required">
+                City is required.
+            </p>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state"
+                   name="state" ng-model="address.state" required/>
+            <p class="validation-error"
+               ng-if="checkoutForm.state.$dirty && checkoutForm.state.$error.required">
+                State is required.
+            </p>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip"
+                   name="zip" ng-model="address.zip" required/>
+            <p class="validation-error"
+               ng-if="checkoutForm.zip.$dirty && checkoutForm.zip.$error.required">
+                Zip is required.
+            </p>
+        </div>
+    </div>
+</form>
+
+
+

@@ -1,0 +1,138 @@
+<h2>Check Out</h2>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Shipping Information</h3>
+        <address-form address="shipping"></address-form>
+    </div>
+
+    <div class="col-md-6" id="billing">
+        <div id="bill-to-shipping">
+            <input type="checkbox" ng-model="billingSameAsShipping"
+                   ng-checked="isSameAsShipping" ng-click="sameAsShippingClicked()">
+            <small>Bill to shipping address</small>
+            </input>
+        </div>
+
+        <h3>Billing Information</h3>
+        <address-form address="billing"></address-form>
+    </div>
+</div>
+
+<form name="paymentForm" novalidate ng-submit="save()">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Credit Card Information</h3>
+
+            <div class="form-group">
+                <label for="cname">Name on Card</label>
+                <input type="text" class="form-control" id="cname"
+                        name="cname" ng-model="card.name" required/>
+                <p class="validation-error"
+                   ng-if="paymentForm.cname.$dirty && paymentForm.cname.$error.required">
+                    Name on card is required.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="cnumber">Card Number</label>
+                <input type="text" class="form-control" id="cnumber"
+                        name="cnumber" ng-model="card.number" required luhn-check min="16" max="16"/>
+                <p class="validation-error"
+                   ng-if="paymentForm.cnumber.$dirty && paymentForm.cnumber.$error.required">
+                    Card number is required.
+                </p>
+
+                <p class="validation-error"
+                    ng-if="paymentForm.cnumber.$dirty && paymentForm.cnumber.$error.luhnCheck"
+                    ng-show="!paymentForm.cnumber.$error.required">
+                    Card number is invalid.
+                </p>
+            </div>
+
+
+            <div class="row">
+                <div class=" form-group col-md-5">
+                    <label for="emonth">Expiration Month</label>
+                    <input type="number" class="form-control" id="emonth"
+                            name="emonth" ng-model="card.month" required min="1" max="12"/>
+                    <p class="validation-error"
+                       ng-if="paymentForm.emonth.$dirty && paymentForm.emonth.$error.required">
+                        Expiration month is required.
+                    </p>
+                    <p class="validation-error"
+                       ng-if="paymentForm.emonth.$error.min || paymentForm.emonth.$error.max">
+                        Expiration month must be in between 1 and 12.
+                    </p>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="eyear">Expiration Year</label>
+                    <input type="text" class="form-control" id="eyear"
+                            name="eyear" ng-model="card.year" required within-ten-years/>
+                    <p class="validation-error"
+                       ng-if="paymentForm.eyear.$dirty && paymentForm.eyear.$error.required">
+                        Expiration year is required.
+                    </p>
+                    <p class="validation-error"
+                        ng-if="paymentForm.eyear.$dirty && paymentForm.eyear.$error.withinTenYears"
+                        ng-show="!paymentForm.eyear.$error.required">
+                        Expiration year must be between the current year and 10 years from now.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv"
+                            name="cvv" ng-model="card.cvv" required pattern="^[0-9]{3,4}$"/>
+                    <p class="validation-error"
+                        ng-if="paymentForm.cvv.$dirty && paymentForm.cvv.$error.required">
+                        CVV is required.
+                    </p>
+                    <p class="validation-error"
+                       ng-if="paymentForm.cvv.$error.pattern">
+                        CVV is either a 3 or 4 digit number
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="order-summary" class="col-md-6">
+            <h3>Order Summary</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="col-md-1">Lb</th>
+                    <th class="col-md-4">Name</th>
+                    <th class="col-md-4">Grind</th>
+                    <th class="col-md-1">Price</th>
+                    <th class="col-md-1">Ext Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="order in orders">
+                    <td>{{order.qty}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.grind}}</td>
+                    <td>{{order.price | currency}}</td>
+                    <td>{{order.price * order.qty |currency}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total: {{totalCost() |currency}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group" id="place-order-buttons">
+        <a type="button" ui-sref="cart" class="btn btn-default">Cancel</a>
+        <button type="submit" class="btn btn-primary"
+                ng-disabled="checkoutForm.$invalid || paymentForm.$invalid">
+            Place Order
+        </button>
+    </div>
+</form>
+

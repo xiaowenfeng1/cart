@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Espresso Blend",
+        "description": "Thick and rich with hints of currant, chocolate, and cinnamon. Or whatever we are using to make espresso that week.",
+        "price": 14,
+        "categories": ["blends", "dark roast", "espresso"]
+    },
+    {
+        "name": "Roaster's Choice",
+        "description": "A delicious medium-bodied blend of beans from around the world, or whatever we have left over after we sell the other stuff.",
+        "price": 13.5,
+        "categories": ["blends"]
+    },
+    {
+        "name": "Captain Ballard's Blend",
+        "description": "A classic fisherman's roast: dark, bitter, with a pinch of salt. Great for a French press.",
+        "price": 13,
+        "categories": ["blends", "dark roast"]
+    },
+    {
+        "name": "French Roast",
+        "description": "Dark and luxurious, refined and powerful. Sip this while watching French existential films, or use it to clean your engine.",
+        "price": 13.50,
+        "categories": ["blends", "dark roast"]
+    },
+    {
+        "name": "Sumatran",
+        "description": "Full bodied, spicy with a hint of nuts and syrup. The favorite of tigers the world over.",
+        "price": 14,
+        "categories": ["varietals"]
+    },
+    {
+        "name": "Ethiopian",
+        "description": "Medium bodied with hints of chocolate, dark berries, and spice. Quite possibly the best coffee in the world. Seriously",
+        "price": 14.5,
+        "categories": ["varietals"]
+    },
+    {
+        "name": "Premium Java",
+        "description": "Earthy and and rich with hints of herbs, from the Indonesian island whose name has become synonymous with coffee.",
+        "price": 14,
+        "categories": ["varietals"]
+    },
+    {
+        "name": "Kona",
+        "description": "The classic Hawaiian coffee from the steep slopes of Mauna Loa. Crazy expensive because it's awesome.",
+        "price": 25,
+        "categories": ["varietals", "luxury"]
+    }
+]

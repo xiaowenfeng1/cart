@@ -1,0 +1,73 @@
+
+<div class="row">
+    <div id="cart" class="col-md-6 col-md-push-6">
+        <h3><i class="fa fa-shopping-cart"></i> Your Cart </h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th class="col-md-1"></th>
+                <th class="col-md-1">Lb</th>
+                <th class="col-md-4">Name</th>
+                <th class="col-md-4">Grind</th>
+                <th class="col-md-1">Price</th>
+                <th class="col-md-1">Ext Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="order in orders">
+                <td><a href="#cart" ng-click="removeFromCart(order)"><i class="fa fa-minus-square-o"></i></a></td>
+                <td>{{order.qty}}</td>
+                <td>{{order.name}}</td>
+                <td>{{order.grind}}</td>
+                <td>{{order.price | currency}}</td>
+                <td>{{order.price * order.qty |currency}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total: {{totalCost() |currency}}</td>
+                <td><a id="checkout-button" class="btn btn-primary" ui-sref="checkout">Check Out</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6 col-md-pull-6">
+        <div>
+            <ul id= "categories">
+                <li>
+                    <a href="#categories" ng-click = "filters.categories = ''">All</a>
+                </li>
+
+                <li ng-repeat="category in categories">
+                    <a href="#categories" ng-click= "filters.categories = category">{{category}}</a>
+                </li>
+            </ul>
+            <p id="error-message" class="alert alert-danger"></p>
+        </div>
+
+        <div ng-repeat="product in products | filter: filters |orderBy:'name' ">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description}} ({{product.price | currency }}/lb.)</p>
+
+            <div id="qty-grind">
+                <label for="quality">Qty:</label>
+                <input id ="quality" type="text" size="4" maxlength="2" ng-model="qty"/>
+            </div>
+
+            <div>
+                <label for="grindSelect" >Grind:</label>
+                <select id="grindSelect"
+                        ng-model="selectedGrd" ng-options="g for g in grindType">
+                </select>
+            </div>
+
+            <div class='form-group'>
+                <button type="submit" ng-click="addToCart(product.name, selectedGrd, product.price, qty)"
+                        class="btn btn-primary add-to-cart-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

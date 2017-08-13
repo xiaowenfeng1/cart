@@ -1,0 +1,246 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+body {
+    font-family: Lato, 'Helvetcia Neue', Helvetcia, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #E9EAEE;
+}
+
+h1, h2, h3, h4 {
+    font-family: Raleway, 'Helvetcia Neue', Helvetcia, sans-serif;
+}
+
+h2, h3 {
+    color: #BC6026;
+	fill: #BC6026
+}
+
+svg {
+	height: 1em;
+	fill: #BC6026;
+}
+
+nav {
+	position: fixed;
+	z-index: 1;
+	background-color: #181C22;
+	width: 100%;
+	font-size: 16px;
+	color: #FFF;
+	padding-left: 15px;
+	top: 0;
+	left: 0;
+}
+
+nav li {
+	display: inline-block;
+	padding: 0.5em;
+	font-variant: small-caps;
+}
+nav a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+nav ul {
+	padding-left: 15px;
+	margin-bottom: 0;
+}
+
+nav svg {
+	fill: #FFF;
+}
+
+nav a:hover, nav a:focus {
+	text-decoration: none;
+	color: #D87E28;
+
+}
+
+nav svg:hover, nav svg:focus {
+	fill: #D87E28;
+}
+
+header {
+	padding-top: 3em;
+}
+
+#motto {
+	visibility: hidden;
+}
+
+#headline svg {
+	visibility: hidden;
+}
+
+#headline {
+	font-style: italic;
+}
+
+#info, #story {
+	background-color: #dbdce3;
+}
+
+#map {
+	border-radius: 5px;
+	padding-bottom: 15px;
+}
+
+dd {
+	font-style: italic;
+	margin-left: 1em;
+}
+
+#story img {
+	float: right;
+	max-height: 300px;
+	margin-left: 1em;
+	border-radius: 5px;
+}
+
+footer {
+	border-top-style: solid;
+	border-top-width: 3px;
+	border-color: #D87E28;
+	font-size: 12px;
+	padding-top: 1em;
+	background-color: #afb3c2;
+	clear: both;
+}
+
+#categories {
+	text-transform: capitalize;
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 1em;
+}
+
+.add-to-cart-button {
+    margin-top: 0.5em;
+}
+
+#checkout-button {
+    float: right;
+}
+
+#categories li {
+ padding-right:1em;
+ display: inline-block;
+
+}
+
+#cart span {
+    float: right;
+}
+
+#categories li a:hover {
+    color:#D87E28;
+    text-decoration: none;
+}
+
+label {
+    font-weight: inherit;
+}
+
+#bill-to-shipping {
+    float: right;
+    margin-top: 0.5em;
+}
+
+#place-order-buttons, #another-order{
+    float:right;
+}
+
+#personal-info {
+	padding-bottom: 2em;
+}
+
+.validation-error {
+	color:#DD0000;
+	font-size: 0.8em;
+}
+
+form .ng-dirty.ng-invalid {
+	border: 1px solid #DD0000;
+}
+
+form .ng-dirty.ng-valid {
+	border: 1px solid #00DD00;
+}
+
+@media(min-width: 768px) {
+	body {
+		font-size: 20px;
+	}
+
+	h2 {
+		text-align: center;
+		padding-bottom: 1em;
+	}
+
+	nav {
+		background-color: rgba(24,28,34,0.8);
+	}
+
+	nav a {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	header {
+		background-image: url(../img/background-sm.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: #FFF;
+		text-align: right;
+		min-height: 550px;
+	}
+
+	#motto {
+		visibility: visible;
+	}
+
+	#headline svg {
+		visibility: visible;
+		height: 1.5em;
+		margin-bottom: 1em;
+	}
+
+	#headline {
+		font-size: 1.25em;
+		text-align: center;
+		padding-top: 3em;
+		padding-bottom: 3em;
+	}
+
+	#story img {
+		max-height: 400px;
+	}
+
+	#icons {
+		text-align: right;
+	}
+}
+
+@media(min-width: 992px) {
+	header {
+		background-image: url(../img/background-md.jpg);
+	}
+
+	header h1 {
+		font-size: 4em;
+	}
+}
+
+@media(min-width: 1200px) {
+	header {
+		background-image: url(../img/background-lg.jpg);
+	}
+}
+
+
+
