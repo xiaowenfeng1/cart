@@ -242,5 +242,11 @@ form .ng-dirty.ng-valid {
 	}
 }
 
+.logo-responsive, footer-responsive { 
+	width: 320px; height: 100px; 
+}
+@media(min-width: 500px) { .logo-responsive, footer-responsive { width: 468px; height: 60px; } }
+@media(min-width: 800px) { .logo-responsive, footer-responsive { width: 728px; height: 90px; } }
+
 
 
